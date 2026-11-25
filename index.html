@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b18">
+  <meta name="description" content="Gopika Murali — Generative AI and Agentic AI Engineer.">
+  <title>Gopika Murali | AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#080b18;--surface:#11162a;--text:#f4f6ff;--muted:#9ca6c2;--accent:#a78bfa;--cyan:#67e8f9;--border:rgba(167,139,250,.18)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.7;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px,90%);margin:auto}
+    nav{position:fixed;top:0;width:100%;z-index:10;background:rgba(8,11,24,.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font:700 22px "Space Grotesk",sans-serif}.logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:25px;align-items:center;font-size:14px;color:var(--muted)}
+    .nav-links a:hover{color:var(--cyan)}.nav-links .contact-link{color:var(--text);border:1px solid var(--border);padding:9px 18px;border-radius:30px}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:40px;padding-top:100px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--cyan);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:25px}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan)}
+    h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.2}
+    h1{font-size:clamp(42px,6vw,76px);letter-spacing:-3px;margin-bottom:20px}
+    .gradient{background:linear-gradient(100deg,var(--accent),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .role{font-size:clamp(18px,2vw,24px);color:#d1d5e8;margin-bottom:20px}
+    .intro{color:var(--muted);max-width:580px;font-size:16px}
+    .actions{display:flex;flex-wrap:wrap;gap:15px;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:9px;font-weight:600;font-size:14px;transition:transform .25s,box-shadow .25s}
+    .btn:hover{transform:translateY(-3px)}.btn-primary{background:linear-gradient(120deg,#a78bfa,#67e8f9);color:#080b18;box-shadow:0 8px 30px rgba(167,139,250,.18)}
+    .btn-secondary{border:1px solid var(--border);color:var(--text)}
+    .location{color:var(--muted);font-size:13px;margin-top:25px}
+    .visual{display:grid;place-items:center;min-height:440px;perspective:900px;position:relative}
+    .orb{width:min(320px,70vw);aspect-ratio:1;position:relative;transform-style:preserve-3d;animation:float 7s ease-in-out infinite}
+    .orb-core{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle at 30% 25%,#e9d5ff 0%,#a78bfa 12%,#6d4ad8 35%,#21144c 68%,#080b18 100%);box-shadow:inset -25px -20px 45px #080b18,inset 15px 12px 30px rgba(255,255,255,.3),0 0 80px rgba(139,92,246,.35);transform:translateZ(25px)}
+    .ring{position:absolute;inset:8%;border:1px solid rgba(103,232,249,.6);border-radius:50%;transform:rotateX(70deg) rotateY(-15deg);animation:orbit 12s linear infinite}
+    .ring.two{inset:0;border-color:rgba(167,139,250,.7);transform:rotateX(70deg) rotateY(55deg);animation-duration:17s;animation-direction:reverse}
+    .ring.three{inset:15%;border-color:rgba(255,255,255,.2);transform:rotateY(70deg) rotateX(25deg);animation-duration:20s}
+    .orb-label{position:absolute;bottom:3%;left:50%;transform:translateX(-50%);color:var(--cyan);font-size:11px;letter-spacing:2px;white-space:nowrap;text-align:center}.orb-tech{position:absolute;z-index:2;padding:7px 12px;border:1px solid rgba(103,232,249,.38);border-radius:30px;background:rgba(8,11,24,.82);color:#dffbff;font:600 11px "Space Grotesk",sans-serif;letter-spacing:.4px;box-shadow:0 0 20px rgba(103,232,249,.12);backdrop-filter:blur(8px);animation:techFloat 5s ease-in-out infinite;transform:translateZ(70px)}.orb-tech.t1{top:9%;left:2%;animation-delay:-.8s}.orb-tech.t2{top:23%;right:-3%;animation-delay:-2s}.orb-tech.t3{bottom:25%;right:-8%;animation-delay:-3.2s}.orb-tech.t4{bottom:17%;left:-4%;animation-delay:-1.4s}.orb-tech.t5{top:48%;left:-10%;animation-delay:-2.5s}@keyframes techFloat{0%,100%{translate:0 0;rotate:-2deg}50%{translate:0 -10px;rotate:2deg}}
+    .orb{will-change:transform;transition:transform .18s ease-out}
+    .orb-node{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan);transform:translateZ(45px);animation:nodePulse 2.8s ease-in-out infinite}
+    .orb-node.one{top:13%;left:24%}.orb-node.two{right:10%;top:48%;background:var(--accent);box-shadow:0 0 18px var(--accent);animation-delay:-.9s}.orb-node.three{bottom:16%;left:27%;width:9px;height:9px;animation-delay:-1.7s}
+    @keyframes nodePulse{0%,100%{opacity:.55;scale:.8}50%{opacity:1;scale:1.25}}
+    @keyframes float{0%,100%{transform:translateY(0) rotateX(-5deg)}50%{transform:translateY(-18px) rotateX(5deg)}}
+    @keyframes orbit{to{rotate:360deg}}
+    section{padding:100px 0}.section-heading{margin-bottom:45px}.section-heading .eyebrow{margin-bottom:12px}
+    h2{font-size:clamp(30px,4vw,44px);letter-spacing:-1px}.section-heading p{color:var(--muted);max-width:600px;margin-top:15px}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:35px}
+    .panel{background:linear-gradient(145deg,#11162a,#0c1020);border:1px solid var(--border);border-radius:18px;padding:30px}
+    .panel p{color:var(--muted)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .stat{padding:22px;border:1px solid var(--border);border-radius:14px;background:rgba(167,139,250,.04)}
+    .stat strong{display:block;font:600 28px "Space Grotesk",sans-serif;color:var(--cyan)}.stat span{color:var(--muted);font-size:12px}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .skill-card{background:var(--surface);border:1px solid var(--border);padding:25px;border-radius:14px;transition:transform .3s,border-color .3s}
+    .skill-card:hover{transform:translateY(-6px);border-color:var(--accent)}
+    .skill-card h3{font-size:17px;margin-bottom:14px}.skill-card p{color:var(--muted);font-size:13px}
+    .skill-icon{color:var(--cyan);font-size:25px;margin-bottom:15px}
+    .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .work-card{padding:25px;border-radius:14px;border:1px solid var(--border);background:var(--surface)}
+    .work-card h3{font-size:18px;margin-bottom:12px}.work-card p{color:var(--muted);font-size:14px}
+    .tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .tag{font-size:11px;padding:5px 10px;color:var(--cyan);background:rgba(103,232,249,.07);border:1px solid rgba(103,232,249,.12);border-radius:30px}
+    .project-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project-card{padding:25px;border-radius:14px;border:1px solid var(--border);background:var(--surface)}.project-card h3{font-size:18px;margin-bottom:12px}.project-card p{color:var(--muted);font-size:14px}.project-card a{display:inline-flex;margin-top:18px;color:var(--cyan);font-weight:600;font-size:14px}.contact-box{text-align:center;padding:60px 30px;border:1px solid var(--border);border-radius:20px;background:radial-gradient(ellipse at top,rgba(139,92,246,.12),transparent 65%),var(--surface)}
+    .contact-box p{color:var(--muted);margin:18px auto 0;max-width:520px}
+    .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:15px;margin-top:30px}
+    footer{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center}
+    .reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+
+    .impact-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}
+    .pipeline{background:linear-gradient(145deg,#11162a,#0c1020);border:1px solid var(--border);border-radius:18px;padding:28px;overflow:hidden}
+    .pipeline-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:24px}
+    .live-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(103,232,249,.25);border-radius:30px;padding:6px 10px;color:var(--cyan);font-size:11px;white-space:nowrap}
+    .live-pill i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:nodePulse 1.5s infinite}
+    .pipeline-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:stretch}
+    .flow-node{position:relative;min-height:112px;padding:14px 10px;border:1px solid var(--border);border-radius:12px;background:rgba(167,139,250,.045);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:9px}
+    .flow-node strong{font-size:12px}.flow-node span{font-size:11px;color:var(--muted)}
+    .flow-node .node-icon{font-size:24px;color:var(--cyan)}
+    .flow-node.active{border-color:var(--cyan);box-shadow:0 0 22px rgba(103,232,249,.12);background:rgba(103,232,249,.07)}
+    .flow-node.active:after{content:"";position:absolute;inset:-1px;border:1px solid var(--cyan);border-radius:12px;animation:flowGlow 1.8s ease-in-out infinite}
+    @keyframes flowGlow{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.9;transform:scale(1.025)}}
+    .pipeline-note{color:var(--muted);font-size:12px;margin-top:18px}
+    .impact-side{display:grid;gap:16px}
+    .impact-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:23px}
+    .impact-card h3{font-size:17px;margin-bottom:10px}.impact-card p{font-size:13px;color:var(--muted)}
+    .tech-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+    .tech-chip{border:1px solid rgba(103,232,249,.18);background:rgba(103,232,249,.06);border-radius:30px;padding:6px 10px;font-size:11px;color:#b8f4fc}
+    .impact-status{margin-top:12px;font-size:12px;color:var(--cyan);min-height:20px}
+    .architecture{margin-top:22px;padding:26px;border:1px solid var(--border);border-radius:18px;background:radial-gradient(ellipse at 50% 0,rgba(103,232,249,.08),transparent 60%),#0d1224;overflow:hidden}
+    .architecture-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .architecture-head p{font-size:13px;color:var(--muted);max-width:600px;margin-top:8px}
+    .architecture-stage{perspective:1100px;padding:20px 8px 30px;min-height:340px;display:grid;place-items:center}
+    .architecture-stack{width:min(780px,100%);display:grid;gap:12px;transform-style:preserve-3d;transform:rotateX(9deg);}
+    .arch-layer{position:relative;display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;padding:17px 20px;border:1px solid rgba(103,232,249,.25);border-radius:13px;background:linear-gradient(110deg,rgba(103,232,249,.08),rgba(167,139,250,.08));box-shadow:0 12px 0 rgba(103,232,249,.035),0 18px 30px rgba(0,0,0,.22);transform:translateZ(var(--z,0));transition:transform .35s,border-color .35s;}
+    .arch-layer:nth-child(2){--z:12px;margin:0 18px}.arch-layer:nth-child(3){--z:24px;margin:0 36px}.arch-layer:nth-child(4){--z:36px;margin:0 54px}.arch-layer:nth-child(5){--z:48px;margin:0 72px}
+    .arch-layer.active{border-color:var(--cyan);box-shadow:0 0 28px rgba(103,232,249,.16),0 12px 0 rgba(103,232,249,.06)}
+    .arch-layer strong{font:600 14px "Space Grotesk",sans-serif;color:var(--cyan)}.arch-layer span{font-size:12px;color:var(--muted)}
+    .arch-layer .arch-tools{display:flex;flex-wrap:wrap;gap:7px}.arch-layer .tech-chip{font-size:10px;margin:0}
+    .architecture-caption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+    .impact-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+    .impact-detail{padding:22px;border:1px solid var(--border);border-radius:15px;background:var(--surface)}
+    .impact-detail h3{font-size:16px;margin-bottom:10px}.impact-detail p,.impact-detail li{font-size:13px;color:var(--muted)}.impact-detail ul{padding-left:18px;margin-top:10px}.impact-detail li+li{margin-top:6px}
+    .impact-caveat{font-size:12px;color:var(--muted);margin-top:18px}
+    @media(max-width:800px){.impact-layout{grid-template-columns:1fr}.pipeline-flow{grid-template-columns:repeat(2,1fr)}.impact-detail-grid{grid-template-columns:1fr}.architecture-stage{padding:12px 0;min-height:0}.architecture-stack{transform:none}.arch-layer,.arch-layer:nth-child(n){margin:0;grid-template-columns:1fr;gap:8px;padding:15px}.architecture-head{display:block}}
+    @media(prefers-reduced-motion:reduce){.flow-node.active:after{animation:none}.arch-layer{transition:none}}
+
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:130px;text-align:center}.hero .intro{margin:auto}.hero .actions,.hero .eyebrow{justify-content:center}.visual{min-height:350px;grid-row:1}.about-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:repeat(2,1fr)}.nav-links{gap:14px;font-size:12px}}
+    @media(max-width:520px){.nav-inner{flex-direction:column;gap:10px;padding:12px 0}.nav-links{flex-wrap:wrap;justify-content:center}.skills-grid,.work-grid,.project-list{grid-template-columns:1fr}.hero{padding-top:150px}h1{letter-spacing:-1.5px}section{padding:70px 0}.panel{padding:22px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#home">GM<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#skills">Skills</a>
+        <a href="#impact">AI Impact</a><a href="#work">Expertise</a><a href="#projects">Projects</a><a href="#resume">Resume</a><a href="#contact" class="contact-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero container" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Generative AI & Agentic AI Engineer</div>
+        <h1>Hi, I'm<br><span class="gradient">Gopika Murali.</span></h1>
+        <p class="role">Building intelligent AI systems for the real world.</p>
+        <p class="intro">I design and develop enterprise-grade AI applications, multi-agent systems, and scalable RAG pipelines. My work focuses on transforming complex financial workflows into intelligent, reliable AI solutions.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#work">Explore My Expertise ↗</a>
+          <a class="btn btn-secondary" href="#contact">Get In Touch</a>
+          <a class="btn btn-secondary" href="./resume.pdf" download="Gopika_Murali_Resume.pdf">Download Resume ↓</a>
+        </div>
+        <p class="location">Chennai, Tamil Nadu, India · 3+ Years Experience</p>
+      </div>
+      <div class="visual" aria-label="Animated 3D AI technology orb showing LLM, RAG, LangChain, LangGraph, and embeddings">
+        <div class="orb" id="aiOrb"><div class="orb-core"></div><div class="ring"></div><div class="ring two"></div><div class="ring three"></div><span class="orb-node one"></span><span class="orb-node two"></span><span class="orb-node three"></span></div>
+        <div class="orb-tech t1">LLM</div><div class="orb-tech t2">RAG</div><div class="orb-tech t3">LangChain</div><div class="orb-tech t4">LangGraph</div><div class="orb-tech t5">Embeddings</div><div class="orb-label">LLM · RAG · LANGCHAIN IN MOTION</div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container reveal">
+        <div class="section-heading"><div class="eyebrow">01 / About Me</div><h2>Engineering the future<br>with <span class="gradient">AI.</span></h2></div>
+        <div class="about-grid">
+          <div class="panel"><p>Generative AI and Agentic AI Engineer with 3+ years of experience developing enterprise-grade LLM applications for investment banking and financial analytics.<br><br>I specialize in building intelligent workflows, multi-agent systems, and scalable RAG applications using modern AI frameworks and cloud technologies.<br><br>I enjoy solving complex problems through practical, secure, and production-ready AI solutions.</p></div>
+          <div class="stats">
+            <div class="stat"><strong>3+</strong><span>Years of Experience</span></div>
+            <div class="stat"><strong>AI</strong><span>Enterprise Applications</span></div>
+            <div class="stat"><strong>LLM</strong><span>Intelligent Systems</span></div>
+            <div class="stat"><strong>RAG</strong><span>Knowledge Retrieval</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container reveal">
+        <div class="section-heading"><div class="eyebrow">02 / Technical Skills</div><h2>My AI <span class="gradient">toolkit.</span></h2><p>Technologies and frameworks I use to build scalable, intelligent, and production-ready systems.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="skill-icon">⌘</div><h3>Programming</h3><p>Python, SQL, API development, data processing, and automation.</p></article>
+          <article class="skill-card"><div class="skill-icon">✳</div><h3>Generative AI & LLMs</h3><p>Amazon Nova Pro, Amazon Bedrock, OpenAI APIs, prompt engineering, fine-tuning, and LLM evaluation.</p></article>
+          <article class="skill-card"><div class="skill-icon">◈</div><h3>Agentic AI</h3><p>AI agents, multi-agent systems, LangGraph, tool calling, MCP, and agentic workflows.</p></article>
+          <article class="skill-card"><div class="skill-icon">⌕</div><h3>RAG & Vector Databases</h3><p>LangChain, Pinecone, Amazon OpenSearch, Redis, embeddings, chunking, and semantic search.</p></article>
+          <article class="skill-card"><div class="skill-icon">☁</div><h3>Cloud & Deployment</h3><p>AWS, Amazon S3, AWS Lambda, ECS, EC2, API Gateway, Docker, and CI/CD.</p></article>
+          <article class="skill-card"><div class="skill-icon">⚙</div><h3>Engineering Practices</h3><p>GitHub, Jenkins, JIRA, MLOps, Responsible AI, security guardrails, and Agile Scrum.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="impact">
+      <div class="container reveal">
+        <div class="section-heading"><div class="eyebrow">03 / AI Impact & Technology</div><h2>From data to <span class="gradient">AI-powered action.</span></h2><p>An animated walkthrough of how a document-intelligence workflow can turn a question into a grounded response, alongside the technologies used to build AI applications.</p></div>
+        <div class="impact-layout">
+          <div class="pipeline">
+            <div class="pipeline-head"><h3>AI workflow in motion</h3><span class="live-pill"><i></i> Animated demo</span></div>
+            <div class="pipeline-flow" id="aiPipeline" aria-label="Animated AI workflow stages">
+              <div class="flow-node active"><div class="node-icon">⌕</div><strong>Ingest</strong><span>Documents & question</span></div>
+              <div class="flow-node"><div class="node-icon">◈</div><strong>Retrieve</strong><span>Relevant source chunks</span></div>
+              <div class="flow-node"><div class="node-icon">✳</div><strong>Generate</strong><span>LLM with context</span></div>
+              <div class="flow-node"><div class="node-icon">↗</div><strong>Respond</strong><span>Grounded answer</span></div>
+            </div>
+            <p class="impact-status" id="pipelineStatus" aria-live="polite">Step 1 of 4 · Preparing the request</p>
+            <p class="pipeline-note">This is a front-end animation of a typical RAG flow. It is not connected to a live model, live customer data, or production telemetry.</p>
+          </div>
+          <div class="impact-side">
+            <article class="impact-card"><h3>Organizational value</h3><p>Document intelligence can help teams find approved information, reduce repetitive manual searching, and prepare more consistent first-draft answers. Human review remains important for high-impact decisions.</p><div class="tech-stack"><span class="tech-chip">Knowledge access</span><span class="tech-chip">Workflow efficiency</span><span class="tech-chip">Traceable answers</span></div></article>
+            <article class="impact-card"><h3>Technology in the workflow</h3><p>Project-aligned technologies shown as an architecture overview; each repository should be checked for the exact components used.</p><div class="tech-stack"><span class="tech-chip">Python</span><span class="tech-chip">RAG</span><span class="tech-chip">LLMs</span><span class="tech-chip">LangChain</span><span class="tech-chip">LangGraph</span><span class="tech-chip">Amazon Bedrock</span><span class="tech-chip">Amazon S3</span><span class="tech-chip">OpenSearch</span><span class="tech-chip">Docker</span></div></article>
+          </div>
+        </div>
+        <div class="architecture">
+          <div class="architecture-head"><div><h3>3D architecture · Document intelligence</h3><p>Explore the layers from a user's question through retrieval and model orchestration to a grounded answer. The stack is a conceptual project architecture, not a live deployment diagram.</p></div><span class="live-pill"><i></i> Layer animation</span></div>
+          <div class="architecture-stage"><div class="architecture-stack" id="architectureStack" aria-label="Layered 3D conceptual AI architecture">
+            <div class="arch-layer active"><strong>01 · Experience</strong><div><span>Web UI · User question · Answer with sources</span><div class="arch-tools"><span class="tech-chip">HTML / CSS / JavaScript</span><span class="tech-chip">API entry point</span></div></div></div>
+            <div class="arch-layer"><strong>02 · App & orchestration</strong><div><span>Request validation · Retrieval workflow · Tool / state routing</span><div class="arch-tools"><span class="tech-chip">Python</span><span class="tech-chip">LangChain</span><span class="tech-chip">LangGraph (agent workflows)</span></div></div></div>
+            <div class="arch-layer"><strong>03 · Knowledge retrieval</strong><div><span>Document parsing · Chunking · Embeddings · Semantic search</span><div class="arch-tools"><span class="tech-chip">Amazon S3</span><span class="tech-chip">Embeddings</span><span class="tech-chip">Amazon OpenSearch</span></div></div></div>
+            <div class="arch-layer"><strong>04 · Model layer</strong><div><span>Context-grounded generation · Prompting · Response formatting</span><div class="arch-tools"><span class="tech-chip">Amazon Bedrock</span><span class="tech-chip">LLM</span><span class="tech-chip">Prompt engineering</span></div></div></div>
+            <div class="arch-layer"><strong>05 · Delivery & operations</strong><div><span>Containerized delivery · Integration checks · Operational support</span><div class="arch-tools"><span class="tech-chip">Docker</span><span class="tech-chip">AWS services</span><span class="tech-chip">CI/CD practices</span></div></div></div>
+          </div></div>
+          <p class="architecture-caption">Layer highlights cycle automatically. Hover or focus a layer to emphasize it; on touch devices, tap a layer. The hero orb also animates technology labels for LLM, RAG, LangChain, LangGraph, and embeddings.</p>
+        </div>
+        <div class="impact-detail-grid">
+          <article class="impact-detail"><h3>Organizational impact</h3><p>Where this kind of solution can help business teams:</p><ul><li>Reduce time spent locating information across large document sets.</li><li>Support faster research and first-draft responses with source context.</li><li>Standardize repeatable knowledge workflows while keeping people in review.</li></ul></article>
+          <article class="impact-detail"><h3>My engineering contribution</h3><p>Contribution areas represented by the projects in this portfolio:</p><ul><li>Build ingestion, retrieval, and prompt / response flows.</li><li>Connect model, search, storage, and application components.</li><li>Test end-to-end behavior and refine answer relevance and reliability.</li></ul></article>
+          <article class="impact-detail"><h3>Production support focus</h3><p>Operational practices to apply or support in a deployed system:</p><ul><li>Check logs, errors, latency, and retrieval / answer quality.</li><li>Handle failures with validation, safe retries, and clear fallbacks.</li><li>Support access controls, deployment checks, and issue triage.</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container reveal">
+        <div class="section-heading"><div class="eyebrow">03 / Areas of Expertise</div><h2>Where AI meets <span class="gradient">impact.</span></h2><p>My areas of focus across enterprise AI and financial analytics.</p></div>
+        <div class="work-grid">
+          <article class="work-card"><h3>Enterprise AI Applications</h3><p>Developing scalable LLM-powered applications that integrate AI capabilities into business workflows.</p><div class="tag-list"><span class="tag">LLMs</span><span class="tag">AWS Bedrock</span><span class="tag">Python</span></div></article>
+          <article class="work-card"><h3>Multi-Agent Systems</h3><p>Designing intelligent agents that collaborate, use tools, and execute complex workflows.</p><div class="tag-list"><span class="tag">LangGraph</span><span class="tag">MCP</span><span class="tag">Tool Calling</span></div></article>
+          <article class="work-card"><h3>Financial Research & Analytics</h3><p>Applying AI to financial research, trade analysis, document intelligence, and risk assessment.</p><div class="tag-list"><span class="tag">Financial Analytics</span><span class="tag">Document AI</span><span class="tag">Risk Assessment</span></div></article>
+          <article class="work-card"><h3>Production-Ready RAG</h3><p>Building retrieval pipelines that connect enterprise knowledge to LLM applications.</p><div class="tag-list"><span class="tag">RAG</span><span class="tag">Pinecone</span><span class="tag">OpenSearch</span></div></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="projects">
+      <div class="container reveal">
+        <div class="section-heading"><div class="eyebrow">04 / Projects</div><h2>Explore my <span class="gradient">projects.</span></h2><p>Explore my project repositories, source code, and project documentation on GitHub.</p></div>
+        <div class="project-list">
+          <article class="project-card"><h3>My GitHub Projects</h3><p>Browse my public repositories, including my Generative AI, Agentic AI, and other development projects.</p><a href="https://github.com/gopikamuraligenai-gv" target="_blank" rel="noopener noreferrer">View GitHub repositories ↗</a></article>
+          <article class="project-card"><h3>Project Portfolio</h3><p>Visit my GitHub profile to explore the source code, README files, and technical details for each project.</p><a href="https://github.com/gopikamuraligenai-gv?tab=repositories" target="_blank" rel="noopener noreferrer">Explore all projects ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container reveal">
+        <div class="section-heading"><div class="eyebrow">05 / Resume</div><h2>My <span class="gradient">resume.</span></h2><p>Download my resume to learn more about my experience, skills, and projects.</p></div>
+        <div class="panel"><p>View or download my resume PDF, including my experience, skills, and projects.</p><div class="actions"><a class="btn btn-primary" href="./resume.pdf" download="Gopika_Murali_Resume.pdf">Download Resume ↓</a><a class="btn btn-secondary" href="./resume.pdf" target="_blank" rel="noopener noreferrer">View Resume ↗</a></div></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container reveal">
+        <div class="contact-box">
+          <div class="eyebrow">06 / Let's Connect</div>
+          <h2>Let's build something<br><span class="gradient">intelligent.</span></h2>
+          <p>Interested in AI engineering, enterprise AI, or building something meaningful together? I'd love to connect.</p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=gopikamurali.genai%40gmail.com" target="_blank" rel="noopener noreferrer">Email Me ↗</a>
+            <a class="btn btn-secondary" href="https://github.com/gopikamuraligenai-gv" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/gopikamurali-genai" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-secondary" href="tel:+919150114703">Call Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© 2026 Gopika Murali · Designed with intention, powered by AI.</div></footer>
+
+  <script>
+    // Front-end-only workflow animation. It does not call an AI service or report live metrics.
+    const flowNodes = Array.from(document.querySelectorAll("#aiPipeline .flow-node"));
+    const pipelineStatus = document.getElementById("pipelineStatus");
+    const flowLabels = ["Preparing the request", "Finding relevant context", "Processing with an AI model", "Presenting a grounded response"];
+    let flowStep = 0;
+    if (flowNodes.length && pipelineStatus && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.setInterval(() => {
+        flowNodes.forEach((node, index) => node.classList.toggle("active", index === flowStep));
+        pipelineStatus.textContent = `Step ${flowStep + 1} of ${flowNodes.length} · ${flowLabels[flowStep]}`;
+        flowStep = (flowStep + 1) % flowNodes.length;
+      }, 1900);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((section) => observer.observe(section));
+
+    // Cycle the conceptual architecture layers; this is a visual explainer, not live telemetry.
+    const architectureLayers = Array.from(document.querySelectorAll("#architectureStack .arch-layer"));
+    let architectureStep = 0;
+    if (architectureLayers.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.setInterval(() => {
+        architectureLayers.forEach((layer, index) => layer.classList.toggle("active", index === architectureStep));
+        architectureStep = (architectureStep + 1) % architectureLayers.length;
+      }, 1500);
+    }
+    architectureLayers.forEach((layer) => {
+      const emphasize = () => architectureLayers.forEach((item) => item.classList.toggle("active", item === layer));
+      layer.addEventListener("pointerenter", emphasize);
+      layer.addEventListener("focus", emphasize);
+      layer.addEventListener("click", emphasize);
+      layer.setAttribute("tabindex", "0");
+      layer.setAttribute("role", "button");
+      layer.setAttribute("aria-label", layer.querySelector("strong")?.textContent + " architecture layer");
+    });
+
+    // Subtle pointer-responsive 3D tilt for the hero AI orb.
+    const orb = document.getElementById("aiOrb");
+    const visual = document.querySelector(".visual");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (orb && visual && !reduceMotion && window.matchMedia("(hover: hover)").matches) {
+      visual.addEventListener("pointermove", (event) => {
+        const bounds = visual.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        orb.style.animationPlayState = "paused";
+        orb.style.transform = `translateY(-8px) rotateX(${-y * 18}deg) rotateY(${x * 22}deg)`;
+      });
+      visual.addEventListener("pointerleave", () => {
+        orb.style.animationPlayState = "running";
+        orb.style.transform = "";
+      });
+    }
+  </script>
+</body>
+</html>
